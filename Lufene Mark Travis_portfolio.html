@@ -7,8 +7,352 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css.css">
+    <style>
+        /* Add the updated CSS here for simplicity */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            top: 0;
+            background-color: #1a1a1a;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #077b32;
+            text-shadow: 0 0 10px #077b32;
+        }
+
+        .hamburg, .cancel {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: white;
+            display: none;
+            font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+        }
+
+        .nav-container .links {
+            display: flex;
+        }
+
+        .nav-container .links a {
+            position: relative;
+            font-size: 1.2rem;
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 550;
+            transition: 0.3s linear;
+        }
+
+        .nav-container .links a::before {
+            position: absolute;
+            content: "";
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: #077b32;
+            transition: 0.2s linear;
+        }
+
+        .nav-container .links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-container .links a:hover {
+            color: #077b32;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #1a1a1a;
+            z-index: 1000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown.active {
+            display: flex;
+        }
+
+        .dropdown .link {
+            margin: 20px 0;
+        }
+
+        .dropdown .link a {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .cancel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .main-container .image {
+            width: 400px;
+            height: 430px; /* Oval shape */
+            border-radius: 50% / 33%; /* Oval shape */
+            overflow: hidden;
+            box-shadow: 0 0 50px #077b32;
+            margin-bottom: 20px;
+        }
+
+        .main-container .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the oval shape */
+        }
+
+        .content {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+        }
+
+        .content h1 span {
+            color: #077b32;
+            text-shadow: 0  0 10px #077b32;
+        }
+
+        .content p {
+            font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+            margin: 10px 0;
+            color: #e0e0e0;
+        }
+
+        .social-links i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: transparent;
+            border: 0.2rem solid #077b32;
+            border-radius: 50%;
+            color: #077b32;
+            margin: 5px 15px;
+            font-size: 1.5rem;
+            transition: 0.2s linear;
+        }
+
+        .social-links i:hover {
+            scale: 1.3;
+            color: black;
+            background-color: #077b32;
+            filter: drop-shadow(0 0 10px #077b32);
+        }
+
+        /* Hire Me Button */
+        .hire-me-btn, .back-btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #077b32;
+            border: 2px solid #077b32;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .hire-me-btn:hover, .back-btn:hover {
+            background-color: #066627;
+            border-color: #066627;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hire-me-btn:active, .back-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Home Links */
+        .home-links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        .home-links a {
+            color: #077b32;
+            text-decoration: none;
+        }
+
+        .home-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        .education-container, .experience-container, .contact-container, .hobbies-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+
+        .education-container h2, .experience-container h2, .contact-container h2, .hobbies-container h2 {
+            color: #077b32;
+            margin-bottom: 20px;
+        }
+
+        .education-container table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .education-container th, .education-container td {
+            padding: 12px;
+            border: 1px solid #077b32;
+            text-align: left;
+        }
+
+        .education-container th {
+            background-color: #077b32;
+            color: white;
+        }
+
+        .experience-container ul, .hobbies-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .experience-container li, .hobbies-container li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        .contact-container ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .contact-container li {
+            margin-bottom: 10px;
+        }
+
+        /* Back Button Styling */
+        .back-btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Video Styling */
+        .video-slot {
+            width: 100%;
+            max-width: 560px; /* Limit video width */
+            margin: 20px auto; /* Center the video */
+        }
+
+        .video-slot video {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container .links {
+                display: none;
+            }
+
+            .hamburg {
+                display: block;
+            }
+
+            .dropdown {
+                display: none;
+            }
+
+            .dropdown.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
@@ -23,10 +367,18 @@
             </div>
             <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
+        <!-- Dropdown Menu for Mobile -->
         <div class="dropdown">
             <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#">Home</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#education">Education</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#experience">Experience</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600"><a href="#hobbies">Hobbies</a></div>
         </div>
     </nav>
+
+    <!-- Main Section -->
     <section>
         <div class="main-container">
             <div class="image" data-aos="zoom-out" data-aos-duration="3000">
@@ -125,6 +477,10 @@
                     </tr>
                 </tbody>
             </table>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
     </section>
 
@@ -139,6 +495,10 @@
                 <li><strong>Team Projects:</strong> Collaborated with peers to create innovative solutions for real-world problems.</li>
                 <li><strong>Problem Solving:</strong> Participated in coding competitions and hackathons to sharpen my skills.</li>
             </ul>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
     </section>
 
@@ -150,6 +510,10 @@
                 <li><strong>Email:</strong> <a href="mailto:marktravis689@gmail.com">marktravis689@gmail.com</a></li>
                 <li><strong>Phone:</strong> 0761091666</li>
             </ul>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
     </section>
 
@@ -174,13 +538,34 @@
                 <!-- Alternative YouTube Video Link -->
                 <p>Alternatively, you can watch a <a href="https://www.youtube.com/embed/5Dbc01VIXgo?controls=1" target="_blank">YouTube video of my hobby</a>.</p>
             </div>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
     </section>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({offset:0});
     </script>
-    <script src="script.js"></script>
+    <script>
+        // JavaScript for Hamburger Menu
+        function hamburg() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function cancel() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.remove('active');
+        }
+
+        // JavaScript for Back Button
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
