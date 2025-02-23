@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Application</title>
+    
+    <link rel="stylesheet" href="./action/genral.css">
+    <script src="./action/action.js"></script>
+</head>
+<body onload="greet()">
+    <button onclick="alert('hello world')">click me</button>
+    <p id="text">This is my first HTML, CSS, and JavaScript</p>
+    <button id="change-text-button">Change text</button>
+    <button id="click">Internal JavaScript</button>
+    <div id="color-options">
+        <label>Choose a color option:</label>
+        <select id="color-option">
+            <option value="color-picker" selected>Color Wheel</option>
+            <option value="color-input">Enter Color Code</option>
+        </select>
+        <div id="color-picker-container">
+            <input type="color" id="color-picker" value="#FFFFFF">
+        </div>
+        <div id="color-input-container" style="display: none;">
+            <input type="text" id="color-input" placeholder="Enter color code (e.g. #FFFFFF)">
+        </div>
+        <button id="change-color-button">Change Background Color</button>
+    </div>
+
+    <script>
+        // Store the original text
+        var originalText = document.getElementById('text').innerHTML;
+        var newText = 'I am testing line JavaScript';
+        var isOriginalText = true;
+
+        document.getElementById("change-text-button").onclick = function(){
+            if (isOriginalText) {
+                document.getElementById('text').innerHTML = newText;
+                isOriginalText = false;
+                document.getElementById("change-text-button").innerHTML = 'Revert text';
+            } else {
+                document.getElementById('text').innerHTML = originalText;
+                isOriginalText = true;
+                document.getElementById("change-text-button").innerHTML = 'Change text';
+            }
+        }
+
+        document.getElementById("click").onclick = function(){
+            alert('Button was clicked') 
+        }
+        document.getElementById('click').onmouseover = function(){
+            document.getElementById("click").style.color ="red"
+        }
+        document.getElementById('click').onmouseout = function(){
+            document.getElementById("click").style.color ="yellow"
+        }
+
+        document.getElementById("color-option").onchange = function(){
+            var selectedOption = document.getElementById("color-option").value;
+            if (selectedOption === "color-picker") {
+                document.getElementById("color-picker-container").style.display = "block";
+                document.getElementById("color-input-container").style.display = "none";
+            } else if (selectedOption === "color-input") {
+                document.getElementById("color-picker-container").style.display = "none";
+                document.getElementById("color-input-container").style.display = "block";
+            }
+        }
+
+        document.getElementById("change-color-button").onclick = function(){
+            var selectedOption = document.getElementById("color-option").value;
+            if (selectedOption === "color-picker") {
+                var color = document.getElementById("color-picker").value;
+                try {
+                    document.body.style.backgroundColor = color;
+                } catch (error) {
+                    alert("Invalid color format. Please select a valid color.");
+                }
+            } else if (selectedOption === "color-input") {
+                var inputColor = document.getElementById("color-input").value;
+                if (!isValidColor(inputColor)) {
+                    alert("Invalid color format. Please enter a valid color code (e.g. #FFFFFF).");
+                    return;
+                }
+                document.body.style.backgroundColor = inputColor;
+            }
+        }
+
+        function isValidColor(color) {
+            var regex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+            return regex.test(color);
+        }
+
+        function greet() {
+            alert("Welcome to the Dynamic world");
+            document.body.style.backgroundColor = "#ADD8E6"; // light blue
+        }
+    </script>
+</body>
+</html>

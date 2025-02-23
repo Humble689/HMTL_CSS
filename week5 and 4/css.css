@@ -12,8 +12,44 @@ body {
     min-height: 100vh;
     background-color: #1a1a1a;
     color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+body.light-mode {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Dark/Light Mode Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #077b32;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    z-index: 1001;
+}
+
+.theme-toggle:hover {
+    background-color: #066627;
+}
+
+body.light-mode .theme-toggle {
+    background-color: #077b32;
+    color: white;
+}
+
+/* Navigation Bar */
 nav {
     width: 100%;
     height: 10vh;
@@ -21,6 +57,11 @@ nav {
     top: 0;
     background-color: #1a1a1a;
     z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+body.light-mode nav {
+    background-color: #ffffff;
 }
 
 .nav-container {
@@ -36,6 +77,11 @@ nav {
     color: white;
     font-size: 2rem;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+body.light-mode .logo {
+    color: #1a1a1a;
 }
 
 .logo span {
@@ -51,6 +97,11 @@ nav {
     color: white;
     display: none;
     font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+    transition: color 0.3s;
+}
+
+body.light-mode .hamburg, body.light-mode .cancel {
+    color: #1a1a1a;
 }
 
 .nav-container .links {
@@ -65,6 +116,10 @@ nav {
     text-decoration: none;
     font-weight: 550;
     transition: 0.3s linear;
+}
+
+body.light-mode .nav-container .links a {
+    color: #1a1a1a;
 }
 
 .nav-container .links a::before {
@@ -102,6 +157,10 @@ nav {
     transition: all 0.3s ease;
 }
 
+body.light-mode .dropdown {
+    background-color: #ffffff;
+}
+
 .dropdown.active {
     display: flex;
 }
@@ -114,6 +173,10 @@ nav {
     font-size: 1.5rem;
     color: white;
     text-decoration: none;
+}
+
+body.light-mode .dropdown .link a {
+    color: #1a1a1a;
 }
 
 .cancel {
@@ -183,6 +246,10 @@ section {
     color: #e0e0e0;
 }
 
+body.light-mode .content p {
+    color: #1a1a1a;
+}
+
 .social-links i {
     display: inline-flex;
     justify-content: center;
@@ -239,6 +306,10 @@ section {
     color: #e0e0e0;
 }
 
+body.light-mode .home-links {
+    color: #1a1a1a;
+}
+
 .home-links a {
     color: #077b32;
     text-decoration: none;
@@ -257,6 +328,15 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .education-container, 
+body.light-mode .experience-container, 
+body.light-mode .contact-container, 
+body.light-mode .hobbies-container {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
 }
 
 .education-container h2, .experience-container h2, .contact-container h2, .hobbies-container h2 {
@@ -264,11 +344,21 @@ section {
     margin-bottom: 20px;
 }
 
+.table-wrapper {
+    overflow-x: auto; /* Make table scrollable on small devices */
+}
+
 .education-container table {
     width: 100%;
     border-collapse: collapse;
     background-color: #1a1a1a;
     color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .education-container table {
+    background-color: #ffffff;
+    color: #1a1a1a;
 }
 
 .education-container th, .education-container td {
@@ -290,6 +380,11 @@ section {
 .experience-container li, .hobbies-container li {
     margin-bottom: 10px;
     color: #e0e0e0;
+}
+
+body.light-mode .experience-container li, 
+body.light-mode .hobbies-container li {
+    color: #1a1a1a;
 }
 
 .contact-container ul {
@@ -336,5 +431,13 @@ section {
 
     .dropdown.active {
         display: flex;
+    }
+
+    .education-container table {
+        font-size: 0.9rem; /* Reduce font size for small devices */
+    }
+
+    .education-container th, .education-container td {
+        padding: 8px; /* Reduce padding for small devices */
     }
 }

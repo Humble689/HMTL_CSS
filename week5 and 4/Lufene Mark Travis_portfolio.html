@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lufene Mark Travis - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./css.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                 Lufene <span>Mark Travis</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#education">Education</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#experience">Experience</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600"><a href="#hobbies">Hobbies</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <!-- Dropdown Menu for Mobile -->
+        <div class="dropdown">
+            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#">Home</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#education">Education</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#experience">Experience</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
+            <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600"><a href="#hobbies">Hobbies</a></div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section>
+        <div class="main-container">
+            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
+                <img src="travis.jpg" alt="Profile Picture">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey, I'm <span>Travis</span></h1>
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">Welcome to my personal portfolio webpage! I am a Year 2 Computer Science student at Uganda Christian University (UCU) with a passion for coding, gaming, and anime. Beyond the technical side, I value creativity, teamwork, and the power of innovation to tackle real-world challenges. My goal is to build solutions that make life simpler, smarter, and more secure.</p>
+
+                <!-- Personal Details Section -->
+                <h2 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300">Personal Details</h2>
+                <ul data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400">
+                    <li><strong>Full Name:</strong> Lufene Mark Travis</li>
+                    <li><strong>Student ID:</strong> B24263</li>
+                    <li><strong>Course and Year:</strong> Computer Science, Year 2</li>
+                    <li><strong>Hobbies and Interests:</strong> Watching football (big Messi fan), anime, and gaming</li>
+                </ul>
+
+                <!-- Social Media Links -->
+                <div class="social-links" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
+                    <a href="https://github.com/Humble689" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://instagram.com/i_am_humble4real" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/Travismark689" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <!-- Hire Me Button -->
+                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
+                    <button class="hire-me-btn">Hire me</button>
+                </div>
+
+                <!-- Links to Favorite Football Team and University -->
+                <div class="home-links" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="2000">
+                    <p><a href="https://www.fcbarcelona.com" target="_blank">My Favorite Football Team</a></p>
+                    <p><a href="https://ucu.ac.ug" target="_blank">Uganda Christian University</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="education-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2>Year 1 Semester 1 Results</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Mark</th>
+                            <th>Credit Units</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CSC 1101</td>
+                            <td>Essential Hardware and Software Concepts</td>
+                            <td>84</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>CSC 1102</td>
+                            <td>Fundamentals of Computing</td>
+                            <td>74</td>
+                            <td>4</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>CSC 1103</td>
+                            <td>Structured Programming</td>
+                            <td>82</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>MAT 1101</td>
+                            <td>Discrete Mathematics</td>
+                            <td>81</td>
+                            <td>3</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>ENG 1101</td>
+                            <td>Writing and Study Skills</td>
+                            <td>86</td>
+                            <td>3</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>BIB 1101</td>
+                            <td>Understanding the Old Testament</td>
+                            <td>88</td>
+                            <td>3</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="experience-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2>Experience</h2>
+            <p>I have gained hands-on experience in various areas, including:</p>
+            <ul>
+                <li><strong>Web Development:</strong> Built responsive websites using HTML, CSS, and JavaScript.</li>
+                <li><strong>Programming:</strong> Developed applications in Python, Java, and C++.</li>
+                <li><strong>Team Projects:</strong> Collaborated with peers to create innovative solutions for real-world problems.</li>
+                <li><strong>Problem Solving:</strong> Participated in coding competitions and hackathons to sharpen my skills.</li>
+            </ul>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2>Contact Me</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:marktravis689@gmail.com">marktravis689@gmail.com</a></li>
+                <li><strong>Phone:</strong> 0761091666</li>
+            </ul>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies">
+        <div class="hobbies-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2 style="color: #077b32;">My Hobbies</h2>
+            <p>Here are some of my favorite hobbies and interests:</p>
+            <ul>
+                <li><strong>Anime:</strong> I love watching anime, especially action and adventure genres. Some of my favorites include <em>Naruto</em>, <em>Attack on Titan</em>, and <em>Demon Slayer</em>.</li>
+                <li><strong>COD Mobile:</strong> I enjoy playing Call of Duty Mobile in my free time. It's a great way to relax and compete with friends.</li>
+                <li><strong>Coding:</strong> I spend a lot of time coding and building projects. It's both a hobby and a passion for me.</li>
+                <li><strong>Football:</strong> I'm a huge fan of football, and Messi is my all-time favorite player. I also enjoy playing football with friends.</li>
+            </ul>
+            <!-- Video Slot -->
+            <div class="video-slot">
+                <h3>Check out my hobby video:</h3>
+                <video width="560" height="315" controls>
+                    <source src="hobby.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Alternative YouTube Video Link -->
+                <p>Alternatively, you can watch a <a href="https://www.youtube.com/embed/5Dbc01VIXgo?controls=1" target="_blank">YouTube video of my hobby</a>.</p>
+            </div>
+            <!-- Back Button -->
+            <div class="back-btn-container">
+                <button class="back-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script>
+        // JavaScript for Hamburger Menu
+        function hamburg() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function cancel() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.remove('active');
+        }
+
+        // JavaScript for Back Button
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // JavaScript for Dark/Light Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
