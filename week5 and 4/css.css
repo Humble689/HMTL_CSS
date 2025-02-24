@@ -23,7 +23,7 @@ body.light-mode {
 /* Dark/Light Mode Toggle Button */
 .theme-toggle {
     position: fixed;
-    top: 20px;
+    top: 60px; /* Updated to be lower */
     left: 20px;
     background-color: #077b32;
     color: white;
@@ -179,15 +179,6 @@ body.light-mode .dropdown .link a {
     color: #1a1a1a;
 }
 
-.cancel {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-}
-
 /* Main Content */
 section {
     width: 100%;
@@ -237,7 +228,7 @@ section {
 
 .content h1 span {
     color: #077b32;
-    text-shadow: 0  0 10px #077b32;
+    text-shadow: 0 0 10px #077b32;
 }
 
 .content p {
@@ -319,7 +310,7 @@ body.light-mode .home-links {
     text-decoration: underline;
 }
 
-/* Education Section */
+/* Education, Experience, Contact, and Hobbies Sections */
 .education-container, .experience-container, .contact-container, .hobbies-container {
     width: 100%;
     max-width: 1200px;
