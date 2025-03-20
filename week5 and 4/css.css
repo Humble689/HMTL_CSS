@@ -335,8 +335,52 @@ body.light-mode .hobbies-container {
     margin-bottom: 20px;
 }
 
+/* Loading Animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #077b32;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #077b32 var(--scroll), transparent 0);
+    z-index: 1002;
+}
+
+/* Improved Table Responsiveness */
 .table-wrapper {
-    overflow-x: auto; /* Make table scrollable on small devices */
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .education-container table {
@@ -345,22 +389,28 @@ body.light-mode .hobbies-container {
     background-color: #1a1a1a;
     color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
+    min-width: 800px; /* Minimum width before horizontal scroll */
 }
 
-body.light-mode .education-container table {
-    background-color: #ffffff;
-    color: #1a1a1a;
+.education-container tr {
+    transition: background-color 0.3s;
+}
+
+.education-container tr:hover {
+    background-color: #077b32;
 }
 
 .education-container th, .education-container td {
-    padding: 12px;
+    padding: 15px;
     border: 1px solid #077b32;
     text-align: left;
+    white-space: nowrap;
 }
 
 .education-container th {
     background-color: #077b32;
     color: white;
+    font-weight: 600;
 }
 
 .experience-container ul, .hobbies-container ul {
@@ -406,7 +456,7 @@ body.light-mode .hobbies-container li {
     border-radius: 10px; /* Rounded corners */
 }
 
-/* Media Queries for Responsiveness */
+/* Mobile Table Styles */
 @media (max-width: 768px) {
     .nav-container .links {
         display: none;
@@ -425,10 +475,97 @@ body.light-mode .hobbies-container li {
     }
 
     .education-container table {
-        font-size: 0.9rem; /* Reduce font size for small devices */
+        font-size: 0.9rem;
     }
 
     .education-container th, .education-container td {
-        padding: 8px; /* Reduce padding for small devices */
+        padding: 10px;
     }
+
+    .education-container td:first-child {
+        font-weight: 600;
+    }
+}
+
+/* Skills Section */
+.skills-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .skills-container {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+}
+
+.skills-container h2 {
+    color: #077b32;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill-item {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .skill-item {
+    background-color: #ffffff;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+body.light-mode .skill-bar {
+    background-color: #e0e0e0;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: #077b32;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+.skill-percentage {
+    font-size: 0.9rem;
+    color: #077b32;
+}
+
+/* Animation for skill bars */
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: var(--progress); }
 }
